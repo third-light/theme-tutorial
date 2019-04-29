@@ -1,0 +1,184 @@
+*, *:before, *:after { box-sizing: border-box; }
+
+html,body { margin:0; padding:0; }
+
+body {
+    background-color: $background-color;
+	color: $text-color;
+    font-family: $font-family;
+    font-weight: normal;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+// reponsiveness magic in here
+html,body { font-size: $normal-font-size; }
+@media only screen and (max-width: $mobile-width) {
+    html,body { font-size: $mobile-font-size; }
+    .optional { display: none;}
+}
+.squashy {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+// base styles
+h1,h2,h3,h4,h5,h6 {
+	color: $title-color;
+	line-height: 1.5;
+	// text-overflow: ellipsis;
+	// white-space: nowrap;
+	// overflow: hidden;
+}
+
+a, a * {
+    cursor: pointer;
+    outline: none;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+	&:hover:not(.icon) { text-decoration: underline; }
+}
+
+a:focus {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+}
+
+a img {
+    border: 0;
+}
+
+a, p, h1, h2, h3, h4, h5 {
+    margin: 0 0 1em 0;
+    line-height: 1.6em;
+    svg {
+        width: 1em;
+        height: 1em;
+        margin-top: -0.5ex;
+        vertical-align: middle;
+    }
+}
+
+p {line-height: 1.6em;}
+
+
+h1 {
+    font-size: $big-font-size;
+    font-weight: normal;
+    margin: 10px 0;
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
+
+.spin.icon > svg {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+h2 {
+    padding-top: 3px;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+    font-size: $normal-font-size;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+    font-size: $normal-font-size;
+}
+
+h4 {
+    margin: 0 0 0.5em 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+h5 {
+    margin: 0 0 0.5em 0;
+    font-weight: bold;
+    font-size: $small-font-size;
+}
+
+input[type=password], input[type=text] {
+    font-weight: 500;
+    font-family: $input-font-family
+}
+
+div.text-input {
+    width: calc(100% - 2ex);
+    border: 1px solid $base-color;
+    border-radius: 0.5ex;
+    padding: 1ex;
+    input[type='text'] {
+        border: none;
+        outline: none;
+        font-size: 1.7ex;
+        color: $base-color;
+        width: 100%;
+        font-size: $medium-font-size;
+    }
+}
+
+a.button {
+    display: inline-block;
+    background-color: $base-color;
+    font-size: $medium-font-size;
+    color: white;
+    padding: 1ex 2ex 1ex 2ex;
+    border-radius: 0.5ex;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        background-color: $base-color-darker;
+    }
+    &:active {
+        background-color: $black-color;
+    }
+}
+
+button {
+    border: 0;
+    width: auto;
+    overflow: visible;
+    border-style: solid;
+    outline: 0;
+}
+
+form {
+    padding: 0;
+    margin: 0;
+}
+
+label {
+    cursor: default;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+span.nowrap {
+    white-space: nowrap;
+}

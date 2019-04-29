@@ -1,0 +1,24 @@
+// - - -
+
+svg {
+	path {
+		fill: $base-color;
+
+		&.darker {
+			fill: $base-color-darker;
+		}
+		&.white {
+			fill: $white-color;
+		}
+	}
+}
+
+svg.icon {
+	width: $icon-width;
+	height: $icon-height;
+
+	&.small {
+		width: $smaller-icon-width;
+		height: $smaller-icon-height;
+	}
+}

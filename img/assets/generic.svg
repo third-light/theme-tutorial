@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="32" height="32" viewBox="0 0 32.00 32.00" enable-background="new 0 0 32.00 32.00" xml:space="preserve">
+	<g>
+		<path fill="#0074C5" class="darker" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 20.0833,2.00011L 20.0833,8.41678C 20.0833,8.73807 20.3454,9.00011 20.6667,9.00011L 27.0833,9.00011"/>
+		<path fill="#0096FF" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 27.0833,10.1668L 27.0833,29.4168C 27.0833,29.7381 26.8212,30.0001 26.5,30.0001L 5.49999,30.0001C 5.17874,30.0001 4.91665,29.7381 4.91665,29.4168L 4.91665,2.58344C 4.91665,2.26216 5.17874,2.00011 5.49999,2.00011L 18.9167,2.00011L 18.9167,9.58344C 18.9167,9.90473 19.1787,10.1668 19.5,10.1668L 27.0833,10.1668 Z "/>
+	</g>
+</svg>

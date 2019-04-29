@@ -1,0 +1,66 @@
+{{#if searchIsEmpty}}
+
+	<table class="no-results"><tr><td>{{svg "img/icons/search.svg" class="icon"}}</td><td>No Results for "{{searchTerm}}"</td></tr></table>
+
+{{else}}
+	<table class="assets">
+
+			<tr>
+				<th colspan="2">Name</th>
+				<th class="optional">Last Modified</th>
+				<th>Size</th>
+				{{#if canDownloadOriginals}}<th class="optional">Download</th>{{/if}}
+			</tr>
+
+		{{#each folders}}
+			<tr class="folder">
+				<td class="icon"><a href="{{url}}">{{svg "img/assets/folder.svg" class="icon"}}</a></td>
+				<td><a href="{{url}}">{{name}}</a></td>
+				<td class="optional">&mdash;</td>
+				{{#if subTreeDirSize}}
+				<td>{{friendlysize subTreeDirSize}}</td>
+				{{else}}
+				<td class="optional">&mdash;</td>
+				{{/if}}
+				{{#if canDownloadOriginals}}<td class="optional">&mdash;</td>{{/if}}
+			</tr>
+		{{/each}}
+
+		{{#each files}}
+			<tr class="file">
+				{{#if isImage}}
+					<td class="icon"><a href="{{previewUrl}}"><img class="icon" src="{{tinyThumbUrl}}" width="120"/></a></td>
+				{{else}}
+					{{#if isGeneric}}
+						<td class="icon"><a href="{{previewUrl}}">{{svg "img/assets/generic.svg" class="icon"}}</a></td>
+					{{/if}}
+					{{#if isVideo}}
+						<td class="icon"><a href="{{previewUrl}}">{{svg "img/assets/video.svg" class="icon"}}</a></td>
+					{{/if}}
+					{{#if isAudio}}
+						<td class="icon"><a href="{{previewUrl}}">{{svg "img/assets/audio.svg" class="icon"}}</a></td>
+					{{/if}}
+					{{#if isDocument}}
+						<td class="icon"><a href="{{previewUrl}}"><img class="icon" src="{{tinyThumbUrl}}" width="120"/></a></td>
+					{{/if}}
+				{{/if}}
+				<td><a href="{{previewUrl}}">{{name}}</a></td>
+				<td class="optional">{{friendlydate lastChanged}}</td>
+				<td>{{friendlysize fileSize}}</td>
+				{{#if canDownloadOriginals}}<td class="optional"><a href="{{url}}" class="icon">{{svg "img/icons/download.svg" class="icon"}}</a></td>{{/if}}
+			</tr>
+		{{/each}}
+
+	</table>
+
+	{{#if isPaged}}
+		<table class='nav'>
+			<tr>
+				<td class="prev">{{#if prevPageUrl}}<a href="{{prevPageUrl}}">{{svg "img/icons/prevnext.svg" class="prev"}}&nbsp;PREV</a>{{/if}}</td>
+				<td class="pagecount">Page {{page}} of {{totalPages}}</td>
+				<td class="next">{{#if nextPageUrl}}<a href="{{nextPageUrl}}">NEXT&nbsp;{{svg "img/icons/prevnext.svg" class="next"}}</a>{{/if}}</td>
+			</tr>
+		</table>
+	{{/if}}
+{{/if}}
+

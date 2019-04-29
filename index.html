@@ -1,0 +1,113 @@
+itemsPerPage: 25
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name = "viewport" content = "width = device-width">
+
+		<link rel="stylesheet" href="{{site.url}}/css/main.scss?{{site.lastChange}}" />
+		<link rel="icon" type="image/png" href="{{site.url}}/img/favicons/favicon.png">
+		<link rel="shortcut icon" href="{{site.url}}/img/favicons/favicon.ico">
+		<link rel="apple-touch-icon" href="{{site.url}}/img/favicons/touch-icon-iphone.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="{{site.url}}/img/favicons/touch-icon-ipad.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="{{site.url}}/img/favicons/touch-icon-iphone-retina.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="{{site.url}}/img/favicons/touch-icon-ipad-retina.png">
+		<link rel="mask-icon" color="#457EA6" href="{{site.url}}/img/favicons/pin_mask.svg">
+
+		{{#if description}}
+			<title>{{description}}</title>
+		{{else}}
+			<title>Link from {{publisher.description}}</title>
+		{{/if}}
+	</head>
+	<body>
+
+		{{#if devMode}}
+		<div id="dev-mode">
+			<div id="dev-mode-banner">Dev Mode</div>
+		</div>
+		{{/if}}
+
+		<table class="topbar">
+		<tr>
+			<td class="logo">
+				<a href="{{site.url}}"><img src="{{site.url}}logo" class="logo"></a>
+			</td>
+			<td>
+		        <form method="get" action="{{searchUrl}}">
+					<div class="search"><input type="text" placeholder="Search..." name="q" value="{{searchTerm}}"><a href="#" onclick="document.forms[0].submit();return false;" class="icon">{{svg "img/icons/search.svg" class="icon"}}</a></div>
+				</form>
+			</td>
+		</tr>
+		</table>
+		<div class='main'>
+
+			{{#if description}}<div class="description">{{description}}</div>{{/if}}
+
+			<div class="contents">
+
+				<table class="crumbs-and-download-all">
+					<tr>
+						<td class="crumbs">
+							<table>
+								<tr>
+									<td class="crumb avatar"><a href="{{site.url}}"><img src="{{publisher.avatarUrl}}" class="avatar" width="56" height="56"></a></td>
+									<td class="crumb optional"><a href="{{site.url}}">{{publisher.description}}</a></td><td class="crumb {{#if currentCrumb}}optional{{/if}}">  {{svg "img/icons/prevnext.svg" class="next"}} </td>
+									{{#each crumbs}}
+										<td class="crumb {{#if currentCrumb}}optional{{/if}}"><a href="{{url}}">{{name}}</a></td><td class="crumb"> {{svg "img/icons/prevnext.svg" class="next"}} </td>
+									{{/each}}
+									{{#if currentCrumb}}<td class="crumb">{{currentCrumb.name}}</td><td class="crumb"> {{svg "img/icons/prevnext.svg" class="next"}} </td>{{/if}}
+								</tr>
+							</table>
+						</td><td class="download-all optional">
+						{{#if canDownloadAll}}
+							<table>
+								<tr>
+									{{#if downloadAllReady}}
+										<td class="text"><a href="{{downloadAllUrl}}"><span class="nowrap">Download All</span> <span class="nowrap">({{friendlysize downloadAllSize}})</span></a></td>
+										<td class="icon"><a href="{{downloadAllUrl}}" class="icon">{{svg "img/icons/download.svg" class="icon"}}</a></td>
+									{{else}}
+										<td class="text not-ready">Download All</td>
+										<td class="icon spin">{{svg "img/icons/loading.svg" title="Being prepared..."}}</td>
+									{{/if}}
+								</tr>
+							</table>
+						{{/if}}
+						</td>
+					</tr>
+				</table>
+
+				{{> (contents)}}
+
+				<div class="plug">
+					<a href="https://www.thirdlight.com">Chorus by Third Light</a>
+				</div>
+			</div>
+
+		</div>
+
+
+		{{#if canDownloadAll}}
+		{{#unless downloadAllReady}}
+			<script src="{{site.url}}js/jquery.js"></script>
+			<script type="text/JavaScript">
+			<!--
+				$( document ).ready(function() {
+					setInterval(function(){
+						$.ajax({
+							url: "{{site.url}}/?json",
+							success: function( data ) {
+								if( data.downloadAllReady ){
+									document.location = document.location + "?reload";
+								}
+							}
+						});
+					},1000);
+				});
+			//   -->
+			</script>
+		{{/unless}}
+		{{/if}}
+	</body>
+</html>

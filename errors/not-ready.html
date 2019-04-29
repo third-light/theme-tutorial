@@ -1,0 +1,23 @@
+title:"Link not ready"
+---
+<h1 class="icon spin">{{svg "img/icons/loading.svg" title="Warning"}} Link not ready</h1>
+<p>This link is still being published.</p>
+
+<script src="{{site.url}}js/jquery.js"></script>
+<script type="text/JavaScript">
+<!--
+	$( document ).ready(function() {
+		setInterval(function(){
+			$.ajax({
+				url: "{{site.url}}/?json",
+				success: function( data ) {
+					if( data.contents != "not-ready"  ){
+						document.location = document.location + "?reload";
+					}
+				}
+			});
+		},1000);
+	});
+//   -->
+</script>
+

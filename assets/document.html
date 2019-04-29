@@ -1,0 +1,7 @@
+{{#if canDownloadOriginals}}<a href="{{file.url}}">{{/if}}
+<div class="pages">
+	{{#each file.pages}}
+		<img src="{{thumbUrl}}" width="{{multiPageWidth}}" title="Page {{pageNo}}" class="page"/>
+	{{/each}}
+</div>
+{{#if canDownloadOriginals}}</a>{{/if}}

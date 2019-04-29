@@ -1,0 +1,25 @@
+showNav: true
+---
+<div class="preview {{file.fileType}}">
+	{{> (file.fileType)}}
+</div>
+
+{{#if canDownloadOriginals}}
+	<div class="download">
+		<table>
+			<tr>
+				<td><a href="{{file.url}}" class="icon">{{svg "img/icons/download.svg" class="icon"}}</a></td>
+				<td><a href="{{file.url}}">Download ({{friendlysize file.fileSize}})</a> </td>
+			</tr>
+		</table>
+	</div>
+{{/if}}
+
+{{#if navigationAvailable}}
+	<table class='nav'>
+		<tr>
+			<td class="prev">{{#if previousFile}}<a href="{{previousFile.previewUrl}}">{{svg "img/icons/prevnext.svg" class="prev"}}&nbsp;PREV</a>{{/if}}</td>
+			<td class="next">{{#if nextFile}}<a href="{{nextFile.previewUrl}}">NEXT&nbsp;{{svg "img/icons/prevnext.svg" class="next"}}</a>{{/if}}</td>
+		</tr>
+	</table>
+{{/if}}

@@ -1,0 +1,21 @@
+{{#if canDownloadAll}}
+	<h1 class="icon spin">{{svg "img/icons/loading.svg" title="Warning"}} Download not ready</h1>
+	<p>The zip file is still being created.</p>
+	<script src="{{site.url}}js/jquery.js"></script>
+	<script type="text/JavaScript">
+	<!--
+		$( document ).ready(function() {
+			setTimeout(function(){
+				document.location.search = "?"+Math.floor(Math.random() * 65536)
+				setTimeout(function(){
+					$("H1").text("DONE!")
+					$("p").text("Your files should now be downloading...")
+				},1000);
+			},3000);
+		});
+	//   -->
+	</script>
+{{else}}
+	<h1>{{svg "img/icons/warning.svg" title="Warning"}} Download not found</h1>
+	<p>It may have been deleted.</p>
+{{/if}}

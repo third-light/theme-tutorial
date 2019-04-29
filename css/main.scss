@@ -1,0 +1,284 @@
+@import "css/sizes";
+@import "css/colors";
+@import "css/fonts/fonts";
+@import "css/base";
+@import "css/icons";
+@import "css/debug";
+
+$logo-height: 5ex;
+$content-width: 960px;
+$padding: 1ex;
+
+$mobile-max-width: calc(#{$mobile-width} - #{$padding} * 2);
+$max-preview-width: calc( #{$content-width} - #{$padding} * 2);
+$max-preview-width-tag: calc( #{$content-width} - #{$padding} * 4);
+
+$small-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px;
+
+nav, .crumbs-and-download-all, .search, .file { padding: $padding; }
+
+img.avatar {
+    width: 2em;
+    height: 2em;
+    border-radius: 2em;
+    margin-right: 1ex;
+    border: 1px solid $dark-grey-color !important;
+}
+
+.topbar {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background-color: $white-color;
+    box-shadow: $small-box-shadow;
+    z-index: 100;
+    td {
+        padding: 1ex;
+    }
+    .logo {
+        text-align: left;
+        img.logo {
+            height: $logo-height;
+        }
+    }
+    .search {
+        text-align: right;
+        position: relative;
+        margin-right: 1em;
+        padding: 1ex 1ex 2.5ex 5ex;
+        border-radius: 1ex;
+        border: 1px solid $dark-grey-color !important;
+
+        input[type='text'] {
+            border: none;
+            outline: none;
+            position: absolute;
+            top: 0.2ex;
+            right: 1ex;
+            bottom: 0.2ex;
+            left:  4.5ex;
+            font-size: 1.7ex;
+            color: $base-color;
+        }
+        .icon {
+            position: absolute;
+            top: 0.1ex;
+            left: 0.3ex;
+            width: $smaller-icon-size;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    z-index: -100;
+    padding-bottom: 3em;
+
+    padding: calc( #{$logo-height} + #{$padding} * 2 + 2em) 2em 2em 2em;
+
+    &.invalid {
+       padding: calc( #{$logo-height} + #{$padding} * 2 + 4em) 4em 4em 4em;
+    }
+    .description {
+        font-size: $big-font-size;
+        padding: 1ex;
+        max-width: $content-width;
+        margin: auto;
+    }
+    .contents {
+        background-color: $white-color;
+        max-width: $content-width;
+        margin: auto;
+        border-radius: 8px;
+        padding: 1em;
+        box-shadow: $small-box-shadow;
+        position: relative;
+
+        .nav {
+            width: 100%;
+            height: 3em;
+
+            .prev {
+                text-align: left;
+                width: 12ex;
+                svg.prev {
+                    height: 1.5ex;
+                    width: 1ex;
+                    display: inline-block;
+                    path.prev {
+                        display: none;
+                    }
+                }
+            }
+            .pagecount {
+                text-align:center;
+            }
+            .next {
+                text-align: right;
+                width: 12ex;
+                svg.next {
+                    height: 1.5ex;
+                    width: 1ex;
+                    display: inline-block;
+                    path.next {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .crumbs-and-download-all {
+            width:100%;
+            td {
+                text-align: left;
+                vertical-align: middle;
+                .avatar {
+                    min-width: $icon-width + $padding;
+                    min-height: $icon-width + $padding;
+                }
+            }
+            .crumbs {
+                width:100%;
+                text-align: right;
+                overflow-x: hidden;
+                .crumb {
+                    padding-right: 0.5ex;
+                    &.next {
+                        width: 1ex;
+                    }
+                }
+                svg.next {
+                    height: 1.5ex;
+                    width: 1ex;
+                    display: inline-block;
+                    path.next {
+                        display: none;
+                    }
+                }
+                .spacer {
+                    width: 100%;
+                }
+            }
+            .download-all {
+                width:100%;
+                td {
+                    text-align: right;
+                    &.text {
+                        min-width: 21ex;
+                    }
+                    &.icon {
+                        width:$icon-width;
+                        svg {
+                            display: inline-block;
+                            width: 2em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .plug {
+            position: absolute;
+             position: absolute;
+            bottom: -2em;
+            right:1.5em;
+            font-size: $small-font-size;
+        }
+        .pages {
+            background-color: $dark-grey-color;
+            text-align:center;
+            .page {
+                padding: 1ex;
+                border-radius: 1ex
+            }
+        }
+        .preview {
+            padding-top: $padding;
+            display: flex; // old browsers should ignore this, it will gracefully degrade
+            align-items: center;      // Center Vertically
+            justify-content: center;  // Center Horizontally
+
+            &.video, &.image, &.document {
+                max-width: $max-preview-width;
+                video, img {
+                    max-width: $max-preview-width-tag;
+                }
+            }
+        }
+        .no-results {
+            margin: 1em;
+        }
+    }
+    @media only screen and (max-width: $mobile-width) {
+        .description,.contents { max-width: $mobile-max-width; }
+    }
+}
+
+.line {
+    border-bottom: 1px solid $grey-color}
+
+.tiny {
+    font-size: $small-font-size;
+    color: #aaa;
+    margin: 0;
+    padding-bottom: 1.5ex;
+}
+
+
+img.icon {
+    width:$icon-width;
+    height:$icon-height;
+}
+
+$cell-padding: 1ex;
+
+table.assets {
+    width: 100%;
+    margin-top: 1em;
+
+    th {
+        font-weight: normal;
+        font-size: $medium-font-size;
+        color: $bright-color;
+    }
+    th, td {
+        text-align: left;
+        padding: $cell-padding;
+        &:last-child {
+            text-align: right;
+            width: 11ex;
+        }
+    }
+    tr.folder, tr.file {
+        td {
+            border-top: 1px solid $grey-color;
+        }
+        td.icon {
+            width: $cell-padding * 2 + $icon-width ;
+            min-width: $icon-width + $cell-padding;
+            min-height: $icon-width + $cell-padding;
+            img {
+                border-radius:0.5ex;
+            }
+        }
+
+    }
+    tr:nth-child(2) {
+        td {
+            border-color: $dark-grey-color;
+        }
+    }
+}
+
+.download {
+    padding-top: 1em;
+}
+
+.button {
+    box-shadow: $small-box-shadow;
+}
+
+.preview > a {
+    max-width: 100%;
+}

@@ -1,0 +1,5 @@
+*, *:before, *:after { box-sizing: border-box; }
+html,body { margin:0; padding:0; }
+body { margin: 2em; }
+nav, .crumbs, .search, .file, .preview { padding: 1ex; }
+img.avatar { width:1.5em; height: 1.5em; border-radius: 1.5em; margin-right: 1ex; }
