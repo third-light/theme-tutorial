@@ -23,7 +23,8 @@
 		"new-publish-link-html": "emails/new-publish-link.html",
 		"new-publish-link-txt": "emails/new-publish-link.txt",
 		"auth-token-html": "emails/auth-token.html",
-		"auth-token-txt": "emails/auth-token.txt"
+		"auth-token-txt": "emails/auth-token.txt",
+		"choruslogin": "errors/choruslogin.html"
 	},
 	"customColors": [
 		{ "name": "color-tint", "displayName": "Color Tint", "default": "#457EA6" }
