@@ -1,6 +1,8 @@
 function addLikes(assetId) {
+    endpoint = apiEndpoint()
+    console.log("Endpoint: ", endpoint);
 	$.ajax({
-		url: apiEndpoint(),
+		url: endpoint,
 		type: "POST",
 		data: JSON.stringify({action:"addLikes", inparams:{assetId: assetId}}),
 		dataType: "json",
