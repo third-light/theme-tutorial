@@ -19,7 +19,7 @@ function apiEndpoint() {
 
 $(document).ready(function(){
     $("#like_button").click(function(){
-        assetId = $("$like_button").val();
+        assetId = $("#like_button").val();
         addLikes(assetId);
     })
 })
