@@ -1,6 +1,5 @@
 function addLikes(assetId) {
     endpoint = apiEndpoint()
-    console.log("Endpoint: ", endpoint);
 	$.ajax({
 		url: endpoint,
 		type: "POST",
@@ -15,6 +14,22 @@ function addLikes(assetId) {
 	});
 }
 
+function getLikes(assetId) {
+    endpoint = apiEndpoint()
+	$.ajax({
+		url: endpoint,
+		type: "POST",
+		data: JSON.stringify({action:"getLikes", inparams:{assetId: assetId}}),
+		dataType: "json",
+		success: function(response) {
+			$("#like_label").text(response.outParams.Value);
+		},
+		error: function(error) {
+			console.log("Error on getLikes: ", error);
+		}
+	});
+}
+
 function apiEndpoint() {
     endpoint = $("#apiendpoint").text();
     console.log("apiEndpoint: ", endpoint);
@@ -22,8 +37,9 @@ function apiEndpoint() {
 }
 
 $(document).ready(function(){
+    assetId = $("#like_button").val();
     $("#like_button").click(function(){
-        assetId = $("#like_button").val();
         addLikes(assetId);
     })
+    getLikes(assetId);
 })
