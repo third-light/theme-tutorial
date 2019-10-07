@@ -1,6 +1,7 @@
 function login(username, password) {
     console.log("Called login");
     endpoint = $("#apiendpoint").text();
+    console.log("Endpoint : ", endpoint);
     $.ajax({
 		url: endpoint,
 		type: "POST",
