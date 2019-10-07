@@ -2,6 +2,7 @@ function login(username, password) {
     console.log("Called login");
     endpoint = $("#apiendpoint").text();
     console.log("Endpoint : ", endpoint);
+    console.log("username : ", username, " , password: ", password);
     $.ajax({
 		url: endpoint,
 		type: "POST",
@@ -20,7 +21,7 @@ $(document).ready(function(){
     username = $("#username").val();
     password = $("#password").val();
     $("#login_button").click(function(){
-        console.log("Calling login");
+        console.log("Calling login with : ", username, password);
         login(username, password);
     })
 })
