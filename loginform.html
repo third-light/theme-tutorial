@@ -1,0 +1,22 @@
+{{#if userDetails}}
+    <form action="{{site.url}}logout/" method="POST">
+        <div>
+            <button type="submit">Logout</button>
+        </div>
+    </form>
+{{else}}
+<form>
+    <div>
+        <table>
+            <tr>
+                <td><input type="text" placeholder="Username" id="username" required></td>
+                <td><input type="password" placeholder="Password" id="password" required></td>
+                <td><button id="login_button">Login</button></td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<script src="{{site.url}}js/jquery.js"></script>
+<script src="{{site.url}}js/login.js"></script>
+{{/if}}
