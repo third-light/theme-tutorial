@@ -16,7 +16,9 @@ function addLikes(assetId) {
 }
 
 function apiEndpoint() {
-    return $("#apiendpoint").text();
+    endpoint = $("#apiendpoint").text();
+    console.log("apiEndpoint: ", endpoint);
+    return endpoint;
 }
 
 $(document).ready(function(){
