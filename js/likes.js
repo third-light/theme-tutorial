@@ -31,9 +31,7 @@ function getLikes(assetId) {
 }
 
 function apiEndpoint() {
-    endpoint = $("#apiendpoint").text();
-    console.log("apiEndpoint: ", endpoint);
-    return endpoint;
+    return $("#apiendpoint").text();
 }
 
 $(document).ready(function(){
