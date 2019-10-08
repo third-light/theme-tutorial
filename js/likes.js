@@ -59,7 +59,7 @@ function resetLikes(assetId) {
 			$("#like_label").text(0);
 		},
 		error: function(error) {
-			console.log("Error on getLikes: ", error);
+			console.log("Error on resetLikes: ", error);
 		}
 	});
 }
