@@ -15,7 +15,6 @@ itemsPerPage: 25
 		<link rel="apple-touch-icon" sizes="152x152" href="{{site.url}}/img/favicons/touch-icon-ipad-retina.png">
 		<link rel="mask-icon" color="#457EA6" href="{{site.url}}/img/favicons/pin_mask.svg">
 
-		{{> loginform }}
 		{{#if description}}
 			<title>{{description}}</title>
 		{{else}}
@@ -23,7 +22,8 @@ itemsPerPage: 25
 		{{/if}}
 	</head>
 	<body>
-
+		<span id ="apiendpoint" hidden>{{site.api}}</span>
+		{{> loginform }}
 		{{#if devMode}}
 		<div id="dev-mode">
 			<div id="dev-mode-banner">Dev Mode</div>
