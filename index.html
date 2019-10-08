@@ -22,6 +22,7 @@ itemsPerPage: 25
 		{{/if}}
 	</head>
 	<body>
+		<script src="{{site.url}}js/jquery.js"></script>
 
 		{{#if devMode}}
 		<div id="dev-mode">
@@ -90,7 +91,6 @@ itemsPerPage: 25
 
 		{{#if canDownloadAll}}
 		{{#unless downloadAllReady}}
-			<script src="{{site.url}}js/jquery.js"></script>
 			<script type="text/JavaScript">
 			<!--
 				$( document ).ready(function() {
