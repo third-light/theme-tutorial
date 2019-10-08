@@ -10,6 +10,7 @@ function login(username, password) {
 		dataType: "json",
 		success: function(response) {
             console.log("Login successful");
+            location.reload(true);
         },
 		error: function(error) {
 			console.log("Error on Core.Login: ", error);
@@ -23,6 +24,5 @@ $(document).ready(function(){
         password = $("#password").val();
         console.log("Calling login with : ", username, password);
         login(username, password);
-        location.reload(true);
     })
 })
