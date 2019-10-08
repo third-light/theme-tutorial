@@ -18,9 +18,9 @@ function login(username, password) {
 }
 
 $(document).ready(function(){
-    username = $("#username").val();
-    password = $("#password").val();
     $("#login_button").click(function(){
+        username = $("#username").val();
+        password = $("#password").val();
         console.log("Calling login with : ", username, password);
         login(username, password);
     })
