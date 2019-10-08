@@ -25,6 +25,7 @@
 		"auth-token-html": "emails/auth-token.html",
 		"auth-token-txt": "emails/auth-token.txt",
 		"choruslogin": "errors/choruslogin.html",
+		"resetlikes": "resetlikes.html",
 		"loginform": "loginform.html"
 	},
 	"customColors": [

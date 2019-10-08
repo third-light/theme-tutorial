@@ -39,5 +39,26 @@ $(document).ready(function(){
     $("#like_button").click(function(){
         addLikes(assetId);
     })
-    getLikes(assetId);
+	getLikes(assetId);
+	
+	$("#resetLikes").click(function(){
+	    assetId = $("#reset_button").val();
+		resetLikes(assetId);
+	})
 })
+
+function resetLikes(assetId) {
+    endpoint = apiEndpoint()
+	$.ajax({
+		url: endpoint,
+		type: "POST",
+		data: JSON.stringify({action:"resetLikes", inparams:{assetId: assetId}}),
+		dataType: "json",
+		success: function(response) {
+			$("#like_label").text(0);
+		},
+		error: function(error) {
+			console.log("Error on getLikes: ", error);
+		}
+	});
+}
