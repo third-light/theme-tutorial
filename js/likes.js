@@ -41,7 +41,7 @@ $(document).ready(function(){
     })
 	getLikes(assetId);
 	
-	$("#resetLikes").click(function(){
+	$("#reset_button").click(function(){
 	    assetId = $("#reset_button").val();
 		resetLikes(assetId);
 	})
