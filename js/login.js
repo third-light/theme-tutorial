@@ -23,5 +23,6 @@ $(document).ready(function(){
         password = $("#password").val();
         console.log("Calling login with : ", username, password);
         login(username, password);
+        location.reload(true);
     })
 })
