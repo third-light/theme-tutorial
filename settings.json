@@ -32,6 +32,6 @@
 	],
 	"serveJson": true,
 	"apisrc": "otto/api.js",
-	"listApiCallsEnabled": ["addLikes"],
+	"listApiCallsEnabled": ["addLikes", "Core.Login"],
 	"devMode": false
 }
