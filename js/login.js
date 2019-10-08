@@ -6,7 +6,7 @@ function login(username, password) {
     $.ajax({
 		url: endpoint,
 		type: "POST",
-		data: JSON.stringify({action:"Core.Login", inparams:{username: username, password: password}}),
+		data: JSON.stringify({action:"Core.Login", inparams:{username: username, password: password}, isUser: true}),
 		dataType: "json",
 		success: function(response) {
             console.log("Login successful");
