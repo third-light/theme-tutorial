@@ -16,6 +16,11 @@ switch (scope.ApiRequest.Action) {
         }
         break;
     case "resetLikes":
+        if (typeof scope.userDetails == 'undefined')
+        {
+            scope.ApiError = "resetLikes can only be used by authenticated users"
+            return
+        }
         try {
             res = store.Delete("assets.likes." + scope.ApiRequest.Params.assetId)
             scope.ApiResponse = res
