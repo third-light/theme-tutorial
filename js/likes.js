@@ -48,7 +48,6 @@ $(document).ready(function(){
 })
 
 function resetLikes(assetId) {
-	console.log("resetlikes is called")
     endpoint = apiEndpoint()
 	$.ajax({
 		url: endpoint,
